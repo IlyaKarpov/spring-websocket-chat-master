@@ -16,13 +16,13 @@ public class ProfanityChecker {
 
 	public long getMessageProfanity(String message) {
 		return Arrays.stream(message.split(" ")) //
-				.filter(word -> profanities.contains(word)) //
+				.filter(word -> profanities.contains(word.toLowerCase())) //
 				.count();
 	}
 
 	public String filter(String message) {
 		return Arrays.stream(message.split(" "))//
-				.filter(word -> !profanities.contains(word)) //
+				.filter(word -> !profanities.contains(word.toLowerCase())) //
 				.collect(Collectors.joining(" "));
 	}
 

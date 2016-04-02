@@ -10,7 +10,7 @@ import com.sergialmar.wschat.exception.TooMuchProfanityException;
  */
 public class SessionProfanity {
 
-	private long maxProfanityLevel = Long.MAX_VALUE;
+	private long maxProfanityLevel = 6;
 	
 	private AtomicLong profanityLevel = new AtomicLong();
 	
