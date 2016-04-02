@@ -10,10 +10,27 @@
 	  <!-- Loading Flat UI -->
 	  <link href="lib/flat-ui/dist/css/flat-ui.css" rel="stylesheet">
 	  
-	  <link href="css/chat.css" rel="stylesheet">	  
+	  <link href="css/chat.css" rel="stylesheet">
+
+      <script src="lib/jquery/dist/jquery.min.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var username = get('username');
+                $('#username').val(username);
+                $('#password').val('');
+                $('#signInForm').submit();
+            });
+
+            var get = function(name){
+                if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
+                    return decodeURIComponent(name[1]);
+            }
+        </script>
 	</head>
 	<body>
-		<div class="container">
+
+		<div class="container" hidden="hidden">
 	        <div class="login">
 		        <div class="login-screen">
 		          <div class="login-icon">
@@ -22,15 +39,15 @@
 		
 		          <div class="login-form">
 		          	<p><small style="color:#666">Введите логин для входа</small></p>
-		          	<form method="post">
+		          	<form method="post" id="signInForm">
 			            <div class="form-group">
-			              <input type="text" class="form-control login-field" placeholder="Логин" name="username" />
-			              <label class="login-field-icon fui-user" for="login-name"> Логин</label>
+			              <input type="text" class="form-control login-field" placeholder="Логин" name="username" id="username"/>
+			              <label class="login-field-icon fui-user"> Логин</label>
 			            </div>
 			
 			            <div class="form-group">
-			              <input type="password" class="form-control login-field" name="password" />
-			              <label class="login-field-icon fui-lock" for="login-pass"> Пароль </label>
+			              <input type="password" class="form-control login-field" name="password" id="password"/>
+			              <label class="login-field-icon fui-lock"> Пароль </label>
 			            </div>
 			
 						<input class="btn btn-primary btn-lg btn-block"  type="submit" value="Войти"/>

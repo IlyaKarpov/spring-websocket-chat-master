@@ -19,6 +19,8 @@ import com.sergialmar.wschat.event.LoginEvent;
 import com.sergialmar.wschat.event.ParticipantRepository;
 import com.sergialmar.wschat.exception.TooMuchProfanityException;
 import com.sergialmar.wschat.util.ProfanityChecker;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * Controller that handles WebSocket chat messages
